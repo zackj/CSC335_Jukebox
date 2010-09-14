@@ -1,5 +1,5 @@
 package Jukebox;
 
-public class CardReader {
+public interface CardReader {
 
 }

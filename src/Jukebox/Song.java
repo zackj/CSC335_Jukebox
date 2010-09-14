@@ -1,5 +1,5 @@
 package Jukebox;
 
-public class Song {
+public interface Song {
 
 }
