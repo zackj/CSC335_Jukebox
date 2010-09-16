@@ -9,13 +9,8 @@ import Jukebox.AccountCollection;
 
 public class AccountCollectionTest {
 	@Test
-	public void addAndRetrieveAccountTest() {
+	public void retrieveAccountTest() {
 		AccountCollection aCollection = new AccountCollection();
-		aCollection.addAccount(new Account("Chris"));
-		aCollection.addAccount(new Account("Casey"));
-		aCollection.addAccount(new Account("Chase"));
-		aCollection.addAccount(new Account("Carson"));
-		
 		assertTrue(aCollection.getAccountById("Chris") != null);
 		assertTrue(aCollection.getAccountById("Carson") != null);
 		assertTrue(aCollection.getAccountById("Chase") != null);
@@ -23,8 +18,15 @@ public class AccountCollectionTest {
 	}
 	
 	@Test
+	public void addAndRetrieveAccountTest() {
+		AccountCollection aCollection = new AccountCollection();
+		aCollection.addAccount(new Account("Mark"));
+		assertTrue(aCollection.getAccountById("Mark") != null);
+	}
+	
+	@Test
 	public void failedRetrieveAccountTest() {
 		AccountCollection aCollection = new AccountCollection();
-		assertTrue(aCollection.getAccountById("Chris") == null);
+		assertTrue(aCollection.getAccountById("Martin") == null);
 	}
 }
