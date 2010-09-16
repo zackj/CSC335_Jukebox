@@ -24,6 +24,7 @@ public class AccountCollectionTest {
 	
 	@Test
 	public void failedRetrieveAccountTest() {
+		AccountCollection aCollection = new AccountCollection();
 		assertTrue(aCollection.getAccountById("Chris") == null);
 	}
 }
