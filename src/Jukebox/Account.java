@@ -1,12 +1,37 @@
 package Jukebox;
 
-public interface Account {
-	//public void setUserId(String id); User ID is set at construction
-	public String getUserId();
+public class Account {
+	private String userId;
+	private int songsPlayedToday = 0;
+	private int minutesPlayed = 0;
 	
-	public void songPlayedToday();
-	public int getSongsPlayedToday();
+	public Account(String id) {
+		userId = id;
+	}
 	
-	public void addToMinutesPlayed(int minutes);
-	public int getMinutesPlayer();
+	public String getUserId() {
+		return userId;
+	}
+	
+	public void newDay() {
+		songsPlayedToday = 0;
+	}
+	
+	public void songPlayedToday() {
+		songsPlayedToday++;
+	}
+	public int getSongsPlayedToday() {
+		return songsPlayedToday;
+	}
+	
+	public void addToMinutesPlayed(int minutes) {
+		minutesPlayed += minutes;
+	}
+	public int getMinutesPlayed() {
+		return minutesPlayed;
+	}
+	
+	public boolean canPlayASongNow() {
+		return (songsPlayedToday < 2 && minutesPlayed < 1500);
+	}
 }
